@@ -1,0 +1,63 @@
+<idea-plugin>
+    <id>com.dc.www.id</id>
+    <name>NoteController</name>
+    <version>1.1.1</version>
+    <vendor email="uatcd992786@icccuat.com" url="http://www.dc.com">DCCompany</vendor>
+
+    <description>
+        <![CDATA[
+            <strong>
+                笔记本小工具,用来记录开发时的代码笔记,可以将写代码或者阅读源码的代码块，
+                再加上当时阅读代码时的注释一起存入笔记，然后一起打包带走，生成md或者html文件
+            </strong>
+        ]]>
+    </description>
+
+    <change-notes>
+    <![CDATA[
+        <dl>
+           <dt>笔记本小工具：</dt>
+           <dd>
+               <dl>
+                  <dt>v1.0 :</dt>
+                  <dd>实现记录和生成笔记文件的基本功能</dd>
+               </dl>
+           </dd>
+           <dd>
+               <dl>
+                  <dt>v1.1 :</dt>
+                  <dd>优化没有选中代码块添加笔记时，到处文件报错的问题</dd>
+                  <dd>新增导出文件模板选中，目前只有两种可供选中，html格式文件和MackDown格式文件</dd>
+               </dl>
+           </dd>
+           <dd>
+               <dl>
+                  <dt>v1.1.1:</dt>
+                  <dd>新增图标</dd>
+               </dl>
+           </dd>
+        </dl>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <toolWindow id="noteWindow" factoryClass="com.note.window.NoteListWindowFactory" anchor="right"
+                    secondary="true" icon="/img/ico.png"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="PopupActionId" class="com.note.PopupAction" text="AddNotes" description="AddNotes">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
